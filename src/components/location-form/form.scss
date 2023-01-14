@@ -1,0 +1,47 @@
+.form {
+    margin-bottom: 24px;
+
+    .form__button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 12px;
+        margin: 0;
+        border: none;
+        outline: none;
+        background-color: rgb(240, 240, 240);
+        cursor: pointer;
+
+        &:active {
+            background-color: rgb(235, 235, 235);
+        }
+
+        &-icon {
+            transition: transform 150ms ease;
+
+            &:hover {
+                transform: scale(1.05);
+                cursor: pointer;
+            }
+
+            &:active {
+                transform: scale(1);
+            }
+        }
+    }
+
+    .form__input {
+        background: none;
+        border: none;
+        border-bottom: 1px rgb(240, 240, 240) solid;
+        padding: 0 10px 4px 0;
+        width: 80%;
+        color: rgb(240, 240, 240);
+        outline: none;
+        font-size: 20px;
+
+        &::placeholder {
+            color: rgb(240, 240, 240);
+        }
+    }
+}

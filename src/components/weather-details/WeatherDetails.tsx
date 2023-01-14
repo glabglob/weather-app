@@ -1,10 +1,13 @@
 
+import "./weatherDetails.scss";
+
 const WeatherDetails: React.FC = () => {
     return (
         <ul className="weather__details">
-            <li className="details">Cloudy 15%</li>
-            <li className="details">Humidility 55%</li>
-            <li className="details">Wind 10km/h</li>
+            <h2>Weather Details</h2>
+            <li className="details">Cloudy <span>15%</span></li>
+            <li className="details">Humidility <span>55%</span></li>
+            <li className="details">Wind <span>10km/h</span></li>
         </ul>
     );
 }

@@ -3,8 +3,8 @@ import "./weather.scss";
 
 const Weather: React.FC = () => {
     return (
-        <div className="weather">
-            <h1>25°</h1>
+        <div className="weather__section">
+            <span className="degre">25°</span>
             <div className="city__info">
                 <span className="city">Kyiv</span>
                 <span className="time">05:27</span>

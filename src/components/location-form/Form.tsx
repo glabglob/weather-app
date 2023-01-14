@@ -1,11 +1,12 @@
 
+import search from "./icons8-search.svg";
 import "./form.scss";
 
 const Form: React.FC = () => {
     return (
-        <form action="">
-            <input type="text" name="" id="" />
-            <button type="submit"></button>
+        <form className="form" action="">
+            <input className="form__input" type="text" placeholder="Serch location..." />
+            <button className="form__button" type="submit"><img className="form__button-icon" src={search} alt="searchIcon" /></button>
         </form>
     );
 }

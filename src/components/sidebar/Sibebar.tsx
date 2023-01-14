@@ -6,7 +6,7 @@ import "./sidebar.scss";
 
 const Sidebar: React.FC = () => {
     return (
-        <section className="sidebar">
+        <section className="sidebar__section">
             <Form />
             <CityList />
             <WeatherDetails />
