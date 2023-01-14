@@ -7,14 +7,27 @@
         padding: 20px 10px 0 20px;
         font-size: 120px;
         font-weight: 700;
+
+        @media screen and (max-width: 769px) {
+            font-size: 70px;
+        }
     }
 
     .city__info {
         display: flex;
         flex-direction: column;
 
+        @media screen and (max-width: 769px) {
+            font-size: 14px;
+        }
+
         .city {
             font-size: 35px;
+
+            @media screen and (max-width: 769px) {
+                font-size: 30px;
+                padding-top: 20px;
+            }
         }
     }
 
@@ -26,6 +39,9 @@
         span {
             font-weight: 700;
 
+            @media screen and (max-width: 769px) {
+                font-size: 30px;
+            }
         }
     }
 }
