@@ -13,8 +13,7 @@ const stringMiddleWare = () => (next: any) => (actions: any) => {
     return next(actions);
 };
 
-const store: object = configureStore({
-    //сюда в редусеры записать заимпорченные редусеры
+const store = configureStore({
     reducer: { currentWeather, forecast },
     middleware: getDefaultMiddleware => getDefaultMiddleware().concat(stringMiddleWare)
 });

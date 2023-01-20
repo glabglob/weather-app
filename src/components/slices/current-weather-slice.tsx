@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import { _apiBase, _apiKey, _apiParams } from '../services/weatherApiServices';
 import { useHttp } from "../hooks/http.hook";
 
-interface InitialState {
+export interface InitialState {
     currentWeather: {},
     weatherLoadingStatus: 'idle' | 'pending' | 'failed',
 }

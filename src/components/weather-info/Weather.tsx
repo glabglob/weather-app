@@ -1,7 +1,25 @@
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchWeather, InitialState } from '../slices/current-weather-slice';
+
+
+import { ClockLoader } from 'react-spinners';
 
 import "./weather.scss";
 
 const Weather: React.FC = () => {
+
+    const weatherLoadingStatus = useSelector((state: InitialState) => state.currentWeatherReducer);
+    const fetchWeahterApi: any = fetchWeather();
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchWeahterApi);
+        // eslint-disable-next-line
+        console.log(dispatch(fetchWeahterApi));
+        console.log(weatherLoadingStatus);
+    }, []);
+
     return (
         <div className="weather__section">
             <span className="degre">25°</span>
