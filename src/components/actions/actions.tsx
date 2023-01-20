@@ -12,6 +12,3 @@ export const forecastFetching = createAction('FORECAST_FETCHING');
 export const forecastFetched = createAction('FORECAST_FETCHED');
 
 export const forecastFetchedError = createAction('FORECAST_FETCHED_ERROR');
-
-
-
