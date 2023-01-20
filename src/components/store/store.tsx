@@ -1,5 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
-//тут будут импорты редусеров
+
+import currentWeather from '../slices/current-weather-slice';
+import forecast from '../slices/forecast-slice';
 
 
 const stringMiddleWare = () => (next: any) => (actions: any) => {
@@ -13,7 +15,7 @@ const stringMiddleWare = () => (next: any) => (actions: any) => {
 
 const store: object = configureStore({
     //сюда в редусеры записать заимпорченные редусеры
-    reducer: {},
+    reducer: { currentWeather, forecast },
     middleware: getDefaultMiddleware => getDefaultMiddleware().concat(stringMiddleWare)
 });
 
