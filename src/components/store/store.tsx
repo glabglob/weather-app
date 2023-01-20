@@ -14,8 +14,7 @@ const stringMiddleWare = () => (next: any) => (actions: any) => {
 const store: object = configureStore({
     //сюда в редусеры записать заимпорченные редусеры
     reducer: {},
-    middleware: getDefaultMiddleware => getDefaultMiddleware().concat(stringMiddleWare),
-    devTools: process.env.NODE_ENV !== 'production'
+    middleware: getDefaultMiddleware => getDefaultMiddleware().concat(stringMiddleWare)
 });
 
 export default store
