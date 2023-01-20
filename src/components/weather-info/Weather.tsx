@@ -9,15 +9,16 @@ import "./weather.scss";
 
 const Weather: React.FC = () => {
 
-    const weatherLoadingStatus = useSelector((state: InitialState) => state.currentWeatherReducer);
+    const weatherLoadingStatus = useSelector((state: any) => state.currentWeatherReducer.weatherLoadingStatus);
     const fetchWeahterApi: any = fetchWeather();
     const dispatch = useDispatch();
 
+
     useEffect(() => {
         dispatch(fetchWeahterApi);
-        // eslint-disable-next-line
         console.log(dispatch(fetchWeahterApi));
         console.log(weatherLoadingStatus);
+        // eslint-disable-next-line
     }, []);
 
     return (
