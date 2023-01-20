@@ -11,6 +11,3 @@ const MainSection: React.FC = () => {
 }
 
 export default MainSection;
-
-//еще надо будет сделать прогноз на 7 дней, просто ниже основной инфы, маленькими блоками <Forecast/>
-//либо  сделать <Forecast/> вместо  сити листа
