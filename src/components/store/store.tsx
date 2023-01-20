@@ -11,7 +11,7 @@ const stringMiddleWare = () => (next: any) => (actions: any) => {
     return next(actions);
 };
 
-const store = configureStore({
+const store: object = configureStore({
     //сюда в редусеры записать заимпорченные редусеры
     reducer: {},
     middleware: getDefaultMiddleware => getDefaultMiddleware().concat(stringMiddleWare),
