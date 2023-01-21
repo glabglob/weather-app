@@ -15,7 +15,7 @@ const Weather: React.FC = () => {
 
 
     useEffect(() => {
-        dispatch(fetchWeahterApi);
+        dispatch(fetchWeahterApi)
         console.log(dispatch(fetchWeahterApi));
         console.log(weatherLoadingStatus);
         // eslint-disable-next-line
