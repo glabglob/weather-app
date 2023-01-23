@@ -1,7 +1,9 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { fetchWeather, InitialState } from '../slices/current-weather-slice';
 
+import { useAppDispatch } from '../hooks/useAppDispatch';
+import { useAppSelector } from '../hooks/useAppSelector';
 
 import { ClockLoader } from 'react-spinners';
 
@@ -9,21 +11,29 @@ import "./weather.scss";
 
 const Weather: React.FC = () => {
 
-    const weatherLoadingStatus = useSelector((state: any) => state.currentWeatherReducer.weatherLoadingStatus);
+    const weatherLoadingStatus = useAppSelector((state) => state.currentWeatherReducer.weatherLoadingStatus);
+    const weatherState = useAppSelector((state) => state.currentWeatherReducer.currentWeather);
+
     const fetchWeahterApi: any = fetchWeather();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
 
     useEffect(() => {
+        // ниже thenc но нужен будет  мише скорее всего,  потому что  почему мы и нет 
         dispatch(fetchWeahterApi)
-        console.log(dispatch(fetchWeahterApi));
-        console.log(weatherLoadingStatus);
+            .then((result: any) => {
+                console.log(result);
+                console.log(weatherState);
+            }).catch((err: {}) => {
+                console.log('Something went wrong');
+            });
         // eslint-disable-next-line
     }, []);
 
+
     return (
         <div className="weather__section">
-            <span className="degre">25°</span>
+            <span className="degree">25°</span>
             <div className="city__info">
                 <span className="city">London</span>
                 <span className="time">05:27</span>
