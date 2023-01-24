@@ -10,3 +10,4 @@ sass
 rtk
 react-spinners (ClockLoader, BarLoader)
 formik
+yup
