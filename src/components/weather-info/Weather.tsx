@@ -9,10 +9,11 @@ import { ClockLoader } from 'react-spinners';
 
 import "./weather.scss";
 
+
 const Weather: React.FC = () => {
 
     const weatherLoadingStatus = useAppSelector((state) => state.currentWeatherReducer.weatherLoadingStatus);
-    const weatherState = useAppSelector((state) => state.currentWeatherReducer.currentWeather);
+    const weatherState = useAppSelector((state) => state.currentWeatherReducer);
 
     const fetchWeahterApi: any = fetchWeather();
     const dispatch = useAppDispatch();
@@ -21,15 +22,21 @@ const Weather: React.FC = () => {
     useEffect(() => {
         // ниже thenc но нужен будет  мише скорее всего,  потому что  почему мы и нет 
         dispatch(fetchWeahterApi)
-            .then((result: any) => {
+            .then((result: {}) => {
                 console.log(result);
-                console.log(weatherState);
-            }).catch((err: {}) => {
-                console.log('Something went wrong');
+            }).catch((err: { message: string }) => {
+                console.log(`Something went wrong ${err.message}`);
             });
         // eslint-disable-next-line
     }, []);
 
+    if (weatherLoadingStatus === "pending") {
+        return <ClockLoader />;
+    } else if (weatherLoadingStatus === "failed") {
+        return <h2>Something went wrong</h2>
+    }
+
+    console.log(weatherState);
 
     return (
         <div className="weather__section">
