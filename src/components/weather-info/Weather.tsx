@@ -9,7 +9,7 @@ import { useAppDispatch } from '../hooks/useAppDispatch';
 import { useAppSelector } from '../hooks/useAppSelector';
 import { useDateConverter } from '../hooks/useDateConverter';
 
-//spinners
+//spinner
 import { ClockLoader } from 'react-spinners';
 
 //scss
@@ -33,8 +33,6 @@ const Weather: React.FC = () => {
         // eslint-disable-next-line
     }, []);
 
-    console.log(weatherState);
-
     // while the request is running set the spinner, if we have some issue set issue message
     if (weatherLoadingStatus === "pending") {
         return <ClockLoader
@@ -47,7 +45,6 @@ const Weather: React.FC = () => {
     } else if (weatherLoadingStatus === "failed") {
         return <span className=" error__message">Something went wrong</span>
     }
-
 
     return (
         <div className="weather__section">
