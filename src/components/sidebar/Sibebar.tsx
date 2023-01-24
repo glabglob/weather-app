@@ -15,5 +15,3 @@ const Sidebar: React.FC = () => {
 }
 
 export default Sidebar;
-
-//вместо <CityList /> сделать <Forecast/>
