@@ -1,11 +1,4 @@
-//hooks
-import { useEffect } from "react";
-
-//slice
-import { fetchWeather } from "../slices/current-weather-slice";
-
 //custom hooks
-import { useAppDispatch } from '../hooks/useAppDispatch';
 import { useAppSelector } from '../hooks/useAppSelector';
 
 //spinner
@@ -18,19 +11,6 @@ const WeatherDetails: React.FC = () => {
 
     const weatherLoadingStatus = useAppSelector((state) => state.currentWeatherReducer.weatherLoadingStatus);
     const weatherState = useAppSelector((state) => state.currentWeatherReducer);
-    const fetchWeahterApi: any = fetchWeather();
-    const dispatch = useAppDispatch();
-
-    //weather info request when component did mount
-    useEffect(() => {
-        dispatch(fetchWeahterApi)
-            .then((result: {}) => {
-                console.log(result);
-            }).catch((err: { message: string }) => {
-                console.log(`Something went wrong ${err.message}`);
-            });
-        // eslint-disable-next-line
-    }, []);
 
     // while the request is running set the spinner, if we have some issue set issue message
     if (weatherLoadingStatus === "pending") {
