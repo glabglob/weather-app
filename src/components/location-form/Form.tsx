@@ -1,6 +1,9 @@
 //hooks
 import { useState } from "react";
 
+//custom hooks
+
+
 // search icon
 import search from "./icons8-search.svg";
 
@@ -8,13 +11,6 @@ import search from "./icons8-search.svg";
 import "./form.scss";
 
 const Form: React.FC = () => {
-
-    const [cityName, setCityName] = useState('');
-    
-
-    const submitHendler = (): void => {
-
-    }
 
     return (
         <form className="form" action="">
