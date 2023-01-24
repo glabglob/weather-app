@@ -1,8 +1,21 @@
+//hooks
+import { useState } from "react";
 
+// search icon
 import search from "./icons8-search.svg";
+
+// scss
 import "./form.scss";
 
 const Form: React.FC = () => {
+
+    const [cityName, setCityName] = useState('');
+    
+
+    const submitHendler = (): void => {
+
+    }
+
     return (
         <form className="form" action="">
             <input className="form__input" type="text" placeholder="Serch location..." />

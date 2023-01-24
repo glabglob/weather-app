@@ -16,7 +16,7 @@ export interface InitialState {
 }
 
 const initialState: InitialState = {
-    cityName: '',
+    cityName: 'Kharkiv',
     localtime: '',
     cloud: 0,
     humidity: 0,
@@ -28,13 +28,13 @@ const initialState: InitialState = {
     weatherLoadingStatus: 'idle'
 }
 
-// тут надо сделать чтоб  вместо  парижа прилетало значение из инпута из  формы
+
 
 export const fetchWeather = createAsyncThunk(
     'currentWeather/fetchWeather',
     async () => {
         const { request } = useHttp();
-        return await request(`${_apiBase}${_apiKey}&q=${'California'}${_apiParams}`);
+        return await request(`${_apiBase}${_apiKey}&q=${initialState.cityName}${_apiParams}`);
     }
 );
 

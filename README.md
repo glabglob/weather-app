@@ -9,5 +9,3 @@ react
 sass
 rtk
 react-spinners (ClockLoader)
-formik
-yup
