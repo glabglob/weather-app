@@ -8,6 +8,6 @@ https://dribbble.com/shots/7118235-Weather-DailyUI-037/attachments/121070?mode=m
 react
 sass
 rtk
-react-spinners (ClockLoader, BarLoader)
+react-spinners (ClockLoader)
 formik
 yup
