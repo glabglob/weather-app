@@ -33,9 +33,6 @@ const Form: React.FC = () => {
 
     const onSubmitHandler: React.FormEventHandler<HTMLFormElement & FormField> = (e) => {
         e.preventDefault();
-        const form = e.currentTarget;
-        const { searchLocation } = form;
-        setCityName(cityName => cityName = searchLocation.value);
 
         request(`${_apiBase}${_apiKey}&q=${cityName}${_apiParams}`)
             .then((result) => {
@@ -45,7 +42,7 @@ const Form: React.FC = () => {
                 console.log(`Something went wrong ${err.message}`);
             });
 
-        // setCityName(cityName => cityName = '');
+        setCityName(cityName => cityName = '');
     }
 
     return (
@@ -58,6 +55,8 @@ const Form: React.FC = () => {
                 type="text"
                 placeholder="Serch location..."
                 name="searchLocation"
+                value={cityName}
+                onChange={(e) => setCityName(cityName => cityName = e.target.value)}
             />
             <button
                 className="form__button"
