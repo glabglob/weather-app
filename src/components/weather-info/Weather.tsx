@@ -19,7 +19,7 @@ const Weather: React.FC = () => {
 
     const weatherLoadingStatus = useAppSelector((state) => state.currentWeatherReducer.weatherLoadingStatus);
     const weatherState = useAppSelector((state) => state.currentWeatherReducer);
-    const fetchWeahterApi: any = fetchWeather();
+    const fetchWeahterApi = fetchWeather(weatherState.cityName);
     const dispatch = useAppDispatch();
 
     //weather info request when component did mount
@@ -45,6 +45,7 @@ const Weather: React.FC = () => {
     } else if (weatherLoadingStatus === "failed") {
         return <span className=" error__message">Something went wrong</span>
     }
+
 
     return (
         <div className="weather__section">
