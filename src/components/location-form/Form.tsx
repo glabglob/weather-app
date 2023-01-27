@@ -28,7 +28,7 @@ const Form: React.FC = () => {
 
     const weatherState = useAppSelector((state) => state.currentWeatherReducer);
     const dispatch = useAppDispatch();
-    const fetchWeahterApi = fetchWeather(weatherState.cityName);
+    const fetchWeahterApi = fetchWeather(cityName);
     const { request } = useHttp();
 
     const onSubmitHandler: React.FormEventHandler<HTMLFormElement & FormField> = (e) => {
