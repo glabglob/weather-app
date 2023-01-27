@@ -4,7 +4,7 @@ import { useHttp } from "../hooks/http.hook";
 
 export interface InitialState {
     cityName: string,
-    localtime: '',
+    localtime: string,
     cloud: number,
     humidity: number,
     temp_c: number,
@@ -16,7 +16,7 @@ export interface InitialState {
 }
 
 const initialState: InitialState = {
-    cityName: 'Kharkiv',
+    cityName: 'Poltava',
     localtime: '',
     cloud: 0,
     humidity: 0,
@@ -32,16 +32,21 @@ const initialState: InitialState = {
 
 export const fetchWeather = createAsyncThunk(
     'currentWeather/fetchWeather',
-    async () => {
+    async (city: string) => {
         const { request } = useHttp();
-        return await request(`${_apiBase}${_apiKey}&q=${initialState.cityName}${_apiParams}`);
+        return await request(`${_apiBase}${_apiKey}&q=${city}${_apiParams}`);
     }
 );
 
 const weatherSlice = createSlice({
     name: 'currentWeather',
     initialState,
-    reducers: {},
+    reducers: {
+        changeCityName: (state, action) => {
+            state.cityName = action.payload;
+            fetchWeather(state.cityName)
+        }
+    },
     extraReducers: (builder) => {
         builder
             .addCase(fetchWeather.pending, state => { state.weatherLoadingStatus = 'pending' })
@@ -65,9 +70,11 @@ const weatherSlice = createSlice({
             })
             .addDefaultCase(() => { })
     }
-})
+});
 
-const { reducer } = weatherSlice;
+const { actions, reducer } = weatherSlice;
+
+export const { changeCityName } = actions;
 
 export default reducer;
 
