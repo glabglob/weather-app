@@ -1,6 +1,3 @@
-//hooks
-import { useState } from 'react';
-
 //slice
 import { fetchWeather } from '../slices/current-weather-slice';
 
