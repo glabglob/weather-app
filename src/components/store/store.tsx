@@ -1,8 +1,8 @@
+// store
 import { configureStore } from '@reduxjs/toolkit';
 
+//reducer
 import currentWeatherReducer from '../slices/current-weather-slice';
-import forecastReducer from '../slices/forecast-slice';
-
 
 const stringMiddleWare = () => (next: any) => (actions: any) => {
     if (typeof actions === 'string') {
@@ -14,7 +14,7 @@ const stringMiddleWare = () => (next: any) => (actions: any) => {
 };
 
 const store = configureStore({
-    reducer: { currentWeatherReducer, forecastReducer },
+    reducer: { currentWeatherReducer },
     middleware: getDefaultMiddleware => getDefaultMiddleware().concat(stringMiddleWare)
 });
 

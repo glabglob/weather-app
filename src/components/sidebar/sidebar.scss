@@ -10,8 +10,12 @@
     border: 1px solid rgba(240, 240, 240, 0.18);
     z-index: 1;
     padding: 24px 16px;
+    overflow-y: scroll;
 
-    // overflow-y: scroll; это сделать  только на мобилке
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
     @media screen and (max-width: 769px) {
         position: relative;
         width: 100%;

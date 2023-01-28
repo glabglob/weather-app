@@ -16,7 +16,7 @@ export interface InitialState {
 }
 
 const initialState: InitialState = {
-    cityName: 'Poltava',
+    cityName: 'Kiev',
     localtime: '',
     cloud: 0,
     humidity: 0,
@@ -27,8 +27,6 @@ const initialState: InitialState = {
     conditionText: '',
     weatherLoadingStatus: 'idle'
 }
-
-
 
 export const fetchWeather = createAsyncThunk(
     'currentWeather/fetchWeather',
@@ -41,12 +39,7 @@ export const fetchWeather = createAsyncThunk(
 const weatherSlice = createSlice({
     name: 'currentWeather',
     initialState,
-    reducers: {
-        changeCityName: (state, action) => {
-            state.cityName = action.payload;
-            fetchWeather(state.cityName)
-        }
-    },
+    reducers: {},
     extraReducers: (builder) => {
         builder
             .addCase(fetchWeather.pending, state => { state.weatherLoadingStatus = 'pending' })
@@ -73,8 +66,6 @@ const weatherSlice = createSlice({
 });
 
 const { actions, reducer } = weatherSlice;
-
-export const { changeCityName } = actions;
 
 export default reducer;
 

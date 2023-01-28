@@ -1,13 +1,18 @@
-.forecast__list {
+.city__list {
     padding-bottom: 10px;
     margin: 40px 0;
     border-bottom: 1px rgb(240, 240, 240) solid;
 
-    .forecast {
+    .city {
         margin: 30px 0;
         list-style: none;
         cursor: pointer;
         color: rgb(240, 240, 240);
         transition: transform 150ms ease;
+        font-size: 20px;
+        display: flex;
+        justify-content: space-between;
+        cursor: pointer;
+        color: rgb(240, 240, 240);
     }
 }

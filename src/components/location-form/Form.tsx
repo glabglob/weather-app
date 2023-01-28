@@ -6,7 +6,6 @@ import { fetchWeather } from '../slices/current-weather-slice';
 
 //custom hooks
 import { useAppDispatch } from '../hooks/useAppDispatch';
-import { useAppSelector } from "../hooks/useAppSelector";
 import { useHttp } from '../hooks/http.hook';
 
 // service
@@ -26,7 +25,6 @@ const Form: React.FC = () => {
 
     const [cityName, setCityName] = useState('');
 
-    const weatherState = useAppSelector((state) => state.currentWeatherReducer);
     const dispatch = useAppDispatch();
     const fetchWeahterApi = fetchWeather(cityName);
     const { request } = useHttp();

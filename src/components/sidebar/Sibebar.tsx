@@ -1,5 +1,5 @@
 import Form from "../location-form/Form";
-import Forecast from "../forecast/Forecast";
+import CityList from "../city-list/CityList";
 import WeatherDetails from "../weather-details/WeatherDetails";
 
 import "./sidebar.scss";
@@ -9,7 +9,7 @@ const Sidebar: React.FC = () => {
         <section className="sidebar__section">
             <Form />
             <WeatherDetails />
-            <Forecast />
+            <CityList />
         </section >
     );
 }

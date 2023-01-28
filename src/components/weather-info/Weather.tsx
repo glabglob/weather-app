@@ -46,7 +46,6 @@ const Weather: React.FC = () => {
         return <span className=" error__message">Something went wrong</span>
     }
 
-
     return (
         <div className="weather__section">
             <span className="degree">{weatherState.temp_c}°</span>
@@ -56,8 +55,8 @@ const Weather: React.FC = () => {
                 <span className="date">{useDateConverter(weatherState.localtime)}</span>
             </div>
             <div className="weather__info">
-                <img src={weatherState.conditionIcon} alt="weatherIcon" />
-                <span>{weatherState.conditionText}</span>
+                <img className='weather__info-icon'  src={weatherState.conditionIcon} alt="weatherIcon" />
+                <span className='weather__info-text' >{weatherState.conditionText}</span>
             </div>
         </div>
     );
