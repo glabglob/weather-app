@@ -2,7 +2,7 @@
 
 ![alt text](./src/img/weatherPreview.jpg)
 
-If you  want to try it,  follow this link: [Weather App]()
+If you  want to try it,  follow this link: [Weather App](https://glabglob.github.io/weather-app/)
 
 ## Usage
 
