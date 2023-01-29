@@ -6,5 +6,5 @@
 export const _apiBase: string = 'http://api.weatherapi.com/v1/current.json?';
 export const _apiKey: string = 'key=8e5f9c7c74674207b8813736231401';
 export const _apiParams: string = '&aqi=no&alerts=no';
-export const _daysOffset: string = '&days=7';
+
 

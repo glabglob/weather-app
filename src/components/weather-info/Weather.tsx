@@ -19,6 +19,7 @@ const Weather: React.FC = () => {
 
     const weatherLoadingStatus = useAppSelector((state) => state.currentWeatherReducer.weatherLoadingStatus);
     const weatherState = useAppSelector((state) => state.currentWeatherReducer);
+    const convertDate = useDateConverter(weatherState.localtime)
     const fetchWeahterApi = fetchWeather(weatherState.cityName);
     const dispatch = useAppDispatch();
 
@@ -52,7 +53,7 @@ const Weather: React.FC = () => {
             <div className="city__info">
                 <span className="city">{weatherState.cityName}</span>
                 <span className="time">{weatherState.localtime.substring(11)}</span>
-                <span className="date">{useDateConverter(weatherState.localtime)}</span>
+                <span className="date">{convertDate}</span>
             </div>
             <div className="weather__info">
                 <img className='weather__info-icon'  src={weatherState.conditionIcon} alt="weatherIcon" />

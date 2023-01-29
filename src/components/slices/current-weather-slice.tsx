@@ -1,5 +1,10 @@
+//rtk
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
+
+//api
 import { _apiBase, _apiKey, _apiParams } from '../services/weatherApiServices';
+
+//custom hooks
 import { useHttp } from "../hooks/http.hook";
 
 export interface InitialState {
@@ -34,7 +39,7 @@ export const fetchWeather = createAsyncThunk(
     'currentWeather/fetchWeather',
     async (city: string) => {
         const { request } = useHttp();
-        return await request(`${_apiBase}${_apiKey}&q=${city}${_apiParams}`);
+        return await request(`${process.env.REACT_APP_API_BASE}${process.env.REACT_APP_API_KEY}&q=${city}${process.env.REACT_APP_API_PARAMS}`);
     }
 );
 
