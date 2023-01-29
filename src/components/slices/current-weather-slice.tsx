@@ -39,7 +39,7 @@ export const fetchWeather = createAsyncThunk(
     'currentWeather/fetchWeather',
     async (city: string) => {
         const { request } = useHttp();
-        return await request(`${process.env.REACT_APP_API_BASE}${process.env.REACT_APP_API_KEY}&q=${city}${process.env.REACT_APP_API_PARAMS}`);
+        return await request(`${_apiBase}${_apiKey}&q=${city}${_apiParams}`);
     }
 );
 
