@@ -20,6 +20,7 @@ const Weather: React.FC = () => {
     const weatherLoadingStatus = useAppSelector((state) => state.currentWeatherReducer.weatherLoadingStatus);
     const weatherState = useAppSelector((state) => state.currentWeatherReducer);
     const convertDate = useDateConverter(weatherState.localtime)
+    console.log(convertDate);
     const fetchWeahterApi = fetchWeather(weatherState.cityName);
     const dispatch = useAppDispatch();
 

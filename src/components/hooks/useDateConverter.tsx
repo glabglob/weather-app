@@ -14,9 +14,9 @@ export const useDateConverter = (apiDate: string): string => {
         "Friday",
         "Saturday",
     ];
-// пофиксить андефанд на айос
+
     const calcWeekDay = (apiDateDay: number, apiDateMonth: number, apiDateYear: number): string => {
-        return weekDays[new Date(`${apiDateYear}-${apiDateMonth}-${apiDateDay}`).getDay()];
+        return weekDays[new Date(`${apiDateYear}/${apiDateMonth}/${apiDateDay}`).getUTCDay()];
     }
 
     return `${calcWeekDay(apiDateDay, apiDateMonth, apiDateYear)} ${apiDateDay}`
