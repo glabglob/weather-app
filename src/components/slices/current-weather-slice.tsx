@@ -12,6 +12,7 @@ export interface InitialState {
     conditionCode: number,
     conditionIcon: string,
     conditionText: string,
+    is_day: number,
     weatherLoadingStatus: 'idle' | 'pending' | 'failed',
 }
 
@@ -25,6 +26,7 @@ const initialState: InitialState = {
     conditionCode: 0,
     conditionIcon: '',
     conditionText: '',
+    is_day: 0,
     weatherLoadingStatus: 'idle'
 }
 
@@ -45,6 +47,7 @@ const weatherSlice = createSlice({
             .addCase(fetchWeather.pending, state => { state.weatherLoadingStatus = 'pending' })
             .addCase(fetchWeather.fulfilled, (state, action) => {
                 state.weatherLoadingStatus = 'idle';
+
                 state.cityName = action.payload.location.name;
                 state.localtime = action.payload.location.localtime;
 
@@ -57,6 +60,8 @@ const weatherSlice = createSlice({
                 state.conditionCode = action.payload.current.condition.code;
                 state.conditionIcon = action.payload.current.condition.icon;
                 state.conditionText = action.payload.current.condition.text;
+
+                state.is_day = action.payload.current.is_day;
             })
             .addCase(fetchWeather.rejected, state => {
                 state.weatherLoadingStatus = 'failed';
@@ -65,7 +70,7 @@ const weatherSlice = createSlice({
     }
 });
 
-const { actions, reducer } = weatherSlice;
+const { reducer } = weatherSlice;
 
 export default reducer;
 

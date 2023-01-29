@@ -1,10 +1,9 @@
 .App {
     min-height: 100vh;
-    background: url(../img/bacgrounds-day/mist_d.jpg) center no-repeat;
     background-size: cover;
     position: relative;
     transition: 500ms;
-    // opacity: 1
+    opacity: 1;
 
     &::before {
         content: '';
