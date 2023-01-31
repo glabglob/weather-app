@@ -4,17 +4,20 @@
 
 If you  want to try it,  follow this link: [Weather App](https://glabglob.github.io/weather-app/)
 
+FOR THE FIRST: You need to access to geodata!!!
+
 ## Usage
 
 This is an adaptive weather app.
 
-When you open my application, for the first you will see the weather in the Kyiv.
+When you open my application, for the first you need to access to geodata.
 
 On the right side you can see the serch form and some info about weather in current city.
 At the serch form you can type the name of the city whose weather you need.
 
 Also in the sidebar you can see the weather in the capitals of 7 popular countries: USA, Canada, France, Germany, Italy, Japan, UK.
 You can click on them.
+Click on logo wiil return  you  to  your geo.
 
 Enjoy!
 
