@@ -22,7 +22,7 @@ export interface InitialState {
 }
 
 const initialState: InitialState = {
-    cityName: 'Kiev',
+    cityName: '',
     localtime: '',
     cloud: 0,
     humidity: 0,

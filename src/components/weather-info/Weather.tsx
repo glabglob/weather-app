@@ -1,5 +1,6 @@
 //hooks
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+
 
 //slice
 import { fetchWeather } from '../slices/current-weather-slice';
@@ -8,6 +9,7 @@ import { fetchWeather } from '../slices/current-weather-slice';
 import { useAppDispatch } from '../hooks/useAppDispatch';
 import { useAppSelector } from '../hooks/useAppSelector';
 import { useDateConverter } from '../hooks/useDateConverter';
+import { useGeoLocation } from '../hooks/useGetUserLocation';
 
 //spinner
 import { ClockLoader } from 'react-spinners';
@@ -17,15 +19,18 @@ import "./weather.scss";
 
 const Weather: React.FC = () => {
 
+    const [userLocationState, setUserLocationState] = useState(false);
+
     const weatherLoadingStatus = useAppSelector((state) => state.currentWeatherReducer.weatherLoadingStatus);
     const weatherState = useAppSelector((state) => state.currentWeatherReducer);
     const convertDate = useDateConverter(weatherState.localtime)
-    console.log(convertDate);
-    const fetchWeahterApi = fetchWeather(weatherState.cityName);
+    const getUserLocation = useGeoLocation(setUserLocationState);
+    const fetchWeahterApi = fetchWeather(getUserLocation);
     const dispatch = useAppDispatch();
 
     //weather info request when component did mount
     useEffect(() => {
+
         dispatch(fetchWeahterApi)
             .then((result: {}) => {
                 console.log(result);
@@ -33,7 +38,7 @@ const Weather: React.FC = () => {
                 console.log(`Something went wrong ${err.message}`);
             });
         // eslint-disable-next-line
-    }, []);
+    }, [userLocationState]);
 
     // while the request is running set the spinner, if we have some issue set issue message
     if (weatherLoadingStatus === "pending") {
@@ -57,7 +62,7 @@ const Weather: React.FC = () => {
                 <span className="date">{convertDate}</span>
             </div>
             <div className="weather__info">
-                <img className='weather__info-icon'  src={weatherState.conditionIcon} alt="weatherIcon" />
+                <img className='weather__info-icon' src={weatherState.conditionIcon} alt="weatherIcon" />
                 <span className='weather__info-text' >{weatherState.conditionText}</span>
             </div>
         </div>
